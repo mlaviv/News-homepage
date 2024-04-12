@@ -18,7 +18,12 @@
       margin: 0;
       padding: 0;
       font-family: "Inter", sans-serif;
+      text-decoration: none;
     }
+    a, a:hover, a:focus, a:active {
+      text-decoration: none;
+      color: inherit;
+      }
 
     :root {
       --Soft-orange: hsl(35, 77%, 62%);
@@ -38,7 +43,11 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 0 ;
+      padding: 1rem 0 ;
+    }
+    nav span {
+      margin-left: auto;
+      display: none;
     }
 
     nav ul {
@@ -46,6 +55,13 @@
       display: flex;
       justify-content: space-around;
       gap: 2.5rem;
+    }
+
+    nav li a {
+      color: var(--Very-dark-blue);
+    }
+    nav li a:hover {
+      color: var(--Soft-red);
     }
 
     section {
@@ -65,6 +81,7 @@
       grid-template-columns: repeat(3 , 1fr);
       grid-template-areas: 'cont cont aside' 'article article article';
       column-gap: 2rem;
+      row-gap: 1rem;
     }
 
     section {
@@ -111,6 +128,14 @@
       color: white;
       background-color: var(--Soft-red);
       border: none;
+      cursor: pointer;
+    }
+
+    section .content p button:hover {
+    background-color: var(--Very-dark-blue);
+    }
+    section .content p button:active {
+    transform: scale(0.95);
     }
 
     aside {
@@ -137,10 +162,13 @@
       padding: .5rem 0;
     }
 
-    aside .articles div h2 {
+    aside .articles div a h2 {
       font-size: 1.5vw;
     }
-
+    aside .articles div a:hover {
+      color: var(--Soft-orange);
+    }
+    
     aside .articles div p {
       font-size: 1vw;
       color: var(--Grayish-blue);
@@ -151,7 +179,6 @@
       display: grid;
       grid-template-columns: repeat(3 ,1fr);
       column-gap: 2rem;
-      padding-top: 2rem;
     }
 
     article .articleCard {
@@ -173,10 +200,13 @@
       color: var(--Grayish-blue);
     }
 
-    article .articleCard div h5 {
+    article .articleCard div a {
       font-size: 1vw;
       color: var(--Very-dark-blue);
     }
+    article .articleCard div a:hover {
+      color: var(--Soft-red);
+    } 
 
     article .articleCard div p {
       font-size: 1vw;
@@ -228,7 +258,7 @@
       font-size: 6vw;
     }
 
-    aside .articles div h2 {
+    aside .articles div a h2 {
       font-size: 3.5vw;
     }
 
@@ -249,7 +279,7 @@
       font-size: 6vw;
     }
 
-    article .articleCard div h5 {
+    article .articleCard div h3 {
       font-size: 4vw;
     }
 
@@ -259,6 +289,44 @@
     article .articleCard img {
       width: 35%;
       height: auto;
+    }
+
+    nav .links {
+      width: 0%;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: white;
+      overflow: hidden;
+      transition: all .5s ease-in;
+    }
+    nav  span {
+      display: block;
+    }
+
+    nav .links span img  {
+      display: block;
+      margin-left: auto;
+      margin-top: 1rem;
+      padding-right: 1rem;
+    }
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      gap: 2.5rem;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+    nav li a {
+      color: var(--Very-dark-blue);
+    }
+    nav li a:hover {
+      color: var(--Soft-red);
     }
 
     }
@@ -271,13 +339,17 @@
     <div class="logo">
       <img src="assets/images/logo.svg" alt="">
     </div>
-    <!-- <ul>
-      <li>Home</li>
-      <li>New</li>
-      <li>Popular</li>
-      <li>Trending</li>
-      <li>Categories</li>
-    </ul> -->
+    <span><img class="menu-open" src="assets/images/icon-menu.svg" alt=""></span>
+    <div class="links">
+      <span><img class="menu-close" src="assets/images/icon-menu-close.svg" alt=""></span>
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">New</a></li>
+            <li><a href="">Popular</a></li>
+            <li><a href="">Trending</a></li>
+            <li><a href="">Categories</a></li>
+          </ul>
+    </div>
   </nav>
   <main>
     <section>
@@ -298,17 +370,17 @@
       <h1>New</h1>
       <div class="articles">
         <div class="asideArticle">
-          <h2>Hydrogen VS Electric Cars</h2>
+          <a href=""><h2>Hydrogen VS Electric Cars</h2></a>
           <p>Will hydrogen-fueled cars ever catch up to EVs?</p>
         </div>
         <hr>
         <div class="asideArticle">
-          <h2>The Downsides of AI Artistry</h2>
+          <a href=""><h2>The Downsides of AI Artistry</h2></a>
           <p>What are the possible adverse effects of on-demand AI image generation?</p>
         </div>
         <hr>
         <div class="asideArticle">
-          <h2>Is VC Funding Drying Up?</h2>
+          <a href=""><h2>Is VC Funding Drying Up?</h2></a>
           <p>Private funding by VCs is down 50% YOY. We take a look at what that means.</p>
         </div>
       </div>
@@ -317,22 +389,34 @@
       <div class="articleCard">
         <img src="assets/images/image-retro-pcs.jpg" alt="" class="cardImg">
         <div><span class="cardNum">01</span>
-        <h5 class="cardHeader">Reviving Retro PCs</h5>
+        <a href=""><h3 class="cardHeader">Reviving Retro PCs</h3></a>
         <p class="cardText">What happens when old PCs are given modern upgrades?</p></div>
       </div>
       <div class="articleCard">
         <img src="assets/images/image-top-laptops.jpg" alt="" class="cardImg">
         <div><span class="cardNum">02</span>
-        <h5 class="cardHeader">Top 10 Laptops of 2022</h5>
+        <a href=""><h3 class="cardHeader">Top 10 Laptops of 2022</h3></a>
         <p class="cardText">Our best picks for various needs and budgets.</p></div>
       </div>
       <div class="articleCard">
         <img src="assets/images/image-gaming-growth.jpg" alt="" class="cardImg">
         <div><span class="cardNum">03</span>
-        <h5 class="cardHeader">The Growth of Gaming</h5>
+        <a href=""><h3 class="cardHeader">The Growth of Gaming</h3></a>
         <p class="cardText">How the pandemic has sparked fresh opportunities.</p></div>
       </div>
     </article>
   </main>
 </body>
+
+<script>
+
+  document.addEventListener('click' , (e) => {
+    if (e.target.classList.value !== 'menu-open' ) return
+    document.querySelector('nav .links').style.width ='70%' 
+})
+  document.addEventListener('click' , (e) => {
+    if (e.target.classList.value !== 'menu-close' ) return
+    document.querySelector('nav .links').style.width ='0%' 
+})
+</script>
 </html>
