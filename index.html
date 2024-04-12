@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | News homepage</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", sans-serif;
+    }
+
+    :root {
+      --Soft-orange: hsl(35, 77%, 62%);
+      --Soft-red: hsl(5, 85%, 63%);
+      --Off-white: hsl(36, 100%, 99%);
+      --Grayish-blue: hsl(233, 8%, 79%);
+      --Dark-grayish-blue: hsl(236, 13%, 42%);
+      --Very-dark-blue: hsl(240, 100%, 5%);
+    }
+    body {
+      padding: 0 10%;
+      height: 100vh;
+    }
+
+    nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0 ;
+    }
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: space-around;
+      gap: 2.5rem;
+    }
+
+    section {
+      grid-area: cont;
+    }
+
+    aside {
+      grid-area: aside;
+    }
+
+    article {
+      grid-area: article;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: repeat(3 , 1fr);
+      grid-template-areas: 'cont cont aside' 'article article article';
+      column-gap: 2rem;
+    }
+
+    section {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+    }
+
+    section img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    section .content {
+      display: grid;
+      grid-template-columns: repeat(2 ,1fr);
+      column-gap: 2rem;
+      padding-top: 1.5rem;
+    }
+
+    section .content h1 {
+      flex: 50%;
+      font-size: 3.5vw;
+      font-weight: bold;
+      color: var(--Very-dark-blue);
+    }
+
+    section .content p {
+      flex: 50%;
+      font-size: 1.2vw;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      color: var(--Very-dark-blue);
+      font-weight: 300;
+
+    }
+
+    section .content p button {
+      width: 50%;
+      padding: 1rem;
+      font-size: 1vw;
+      letter-spacing: 4px;
+      color: white;
+      background-color: var(--Soft-red);
+      border: none;
+    }
+
+    aside {
+      padding: 1rem 2rem;
+      background-color: hsl(240, 100%, 5%);
+      color: white;
+    }
+
+    aside h1 {
+      font-size: 3vw;
+      color: var(--Soft-orange);
+    }
+
+    aside .articles {
+      margin: 2rem 0;
+    }
+
+    aside .articles hr {
+      border-color: var(--Grayish-blue);
+    }
+
+    aside .articles div {
+      margin: 1.5rem 0;
+      padding: .5rem 0;
+    }
+
+    aside .articles div h2 {
+      font-size: 1.5vw;
+    }
+
+    aside .articles div p {
+      font-size: 1vw;
+      color: var(--Grayish-blue);
+      padding: 1rem 0 ;
+    }
+
+    article {
+      display: grid;
+      grid-template-columns: repeat(3 ,1fr);
+      column-gap: 2rem;
+      padding-top: 2rem;
+    }
+
+    article .articleCard {
+      flex: 1;
+      display: flex;
+      flex-flow: row nowrap;
+      gap: 1rem;
+    }
+
+    article .articleCard div {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+    }
+
+    article .articleCard div span {
+      font-size: 1.5vw;
+      font-weight: bold;
+      color: var(--Grayish-blue);
+    }
+
+    article .articleCard div h5 {
+      font-size: 1vw;
+      color: var(--Very-dark-blue);
+    }
+
+    article .articleCard div p {
+      font-size: 1vw;
+      color: var(--Grayish-blue);
+    }
+    article .articleCard img {
+      width: 25%;
+      height: auto;
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">
+      <img src="assets/images/logo.svg" alt="">
+    </div>
+    <ul>
+      <li>Home</li>
+      <li>New</li>
+      <li>Popular</li>
+      <li>Trending</li>
+      <li>Categories</li>
+    </ul>
+  </nav>
+  <main>
+    <section>
+      <picture>
+        <source media="(min-width: 375px)" srcset="assets/images/image-web-3-desktop.jpg">
+        <img src="assets/images/image-web-3-mobile.jpg" alt="">
+      </picture>
+      <div class="content">
+        <h1 class="title">The Bright Future Of Web 3.0?</h1>
+        <p class="artical">
+          We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the
+          people. But is it really fulfilling its promise?
+          <button type="button">Read More</button>
+        </p>
+      </div>
+    </section>
+    <aside>
+      <h1>New</h1>
+      <div class="articles">
+        <div class="asideArticle">
+          <h2>Hydrogen VS Electric Cars</h2>
+          <p>Will hydrogen-fueled cars ever catch up to EVs?</p>
+        </div>
+        <hr>
+        <div class="asideArticle">
+          <h2>The Downsides of AI Artistry</h2>
+          <p>What are the possible adverse effects of on-demand AI image generation?</p>
+        </div>
+        <hr>
+        <div class="asideArticle">
+          <h2>Is VC Funding Drying Up?</h2>
+          <p>Private funding by VCs is down 50% YOY. We take a look at what that means.</p>
+        </div>
+      </div>
+    </aside>
+    <article>
+      <div class="articleCard">
+        <img src="assets/images/image-retro-pcs.jpg" alt="" class="cardImg">
+        <div><span class="cardNum">01</span>
+        <h5 class="cardHeader">Reviving Retro PCs</h5>
+        <p class="cardText">What happens when old PCs are given modern upgrades?</p></div>
+      </div>
+      <div class="articleCard">
+        <img src="assets/images/image-top-laptops.jpg" alt="" class="cardImg">
+        <div><span class="cardNum">02</span>
+        <h5 class="cardHeader">Top 10 Laptops of 2022</h5>
+        <p class="cardText">Our best picks for various needs and budgets.</p></div>
+      </div>
+      <div class="articleCard">
+        <img src="assets/images/image-gaming-growth.jpg" alt="" class="cardImg">
+        <div><span class="cardNum">03</span>
+        <h5 class="cardHeader">The Growth of Gaming</h5>
+        <p class="cardText">How the pandemic has sparked fresh opportunities.</p></div>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
