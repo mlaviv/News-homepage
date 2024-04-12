@@ -69,12 +69,11 @@
 
     section {
       display: flex;
-      flex-flow: column nowrap;
+      flex-flow: column wrap;
       justify-content: space-between;
     }
 
     section img {
-      display: block;
       width: 100%;
       height: auto;
     }
@@ -189,6 +188,81 @@
     }
 
 
+
+    @media (max-width: 450px) {
+
+          body {
+      padding: 0 5%;
+      height: 100vh;
+    }
+
+
+      main {
+        grid-template-columns: 1fr;
+        grid-template-areas: 'cont' 'aside' 'article';
+      }
+
+          section .content {
+      grid-template-columns: 1fr;
+      align-content: space-between;
+    }
+
+    
+    section .content h1 {
+      font-size: 10vw;
+    }
+
+    section .content p {
+      font-size: 3vw;
+      margin: 1rem 0 ;
+    }
+
+    section .content p button {
+      padding: 1rem;
+      font-size: 3vw;
+      margin-top: 1rem;
+    }
+
+
+    aside h1 {
+      font-size: 6vw;
+    }
+
+    aside .articles div h2 {
+      font-size: 3.5vw;
+    }
+
+    aside .articles div p {
+      font-size: 3vw;
+    }
+
+        article {
+      grid-template-columns: 1fr;
+    }
+
+
+    article .articleCard{
+      margin-bottom: 1rem;
+    }
+
+    article .articleCard div span {
+      font-size: 6vw;
+    }
+
+    article .articleCard div h5 {
+      font-size: 4vw;
+    }
+
+    article .articleCard div p {
+      font-size: 4vw;
+    }
+    article .articleCard img {
+      width: 35%;
+      height: auto;
+    }
+
+    }
+
   </style>
 </head>
 <body>
@@ -197,18 +271,18 @@
     <div class="logo">
       <img src="assets/images/logo.svg" alt="">
     </div>
-    <ul>
+    <!-- <ul>
       <li>Home</li>
       <li>New</li>
       <li>Popular</li>
       <li>Trending</li>
       <li>Categories</li>
-    </ul>
+    </ul> -->
   </nav>
   <main>
     <section>
       <picture>
-        <source media="(min-width: 375px)" srcset="assets/images/image-web-3-desktop.jpg">
+        <source media="(min-width: 450px)" srcset="assets/images/image-web-3-desktop.jpg">
         <img src="assets/images/image-web-3-mobile.jpg" alt="">
       </picture>
       <div class="content">
